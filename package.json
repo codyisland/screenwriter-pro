@@ -5,21 +5,12 @@
   "author": "Screenwriter Pro Team",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "dev": "electron . --dev",
-    "build": "electron-builder --win",
-    "build:portable": "electron-builder --win portable",
-    "build:dir": "electron-builder --win --dir",
-    "postinstall": "electron-builder install-app-deps"
-  },
-  "build": {
-    "extends": "./electron-builder.yml",
-    "mac": [],
-    "linux": []
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "postinstall": "tauri install-app-deps"
   },
   "devDependencies": {
-    "electron": "^30.0.0",
-    "electron-builder": "^24.13.3"
+    "@tauri-apps/cli": "^2.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
