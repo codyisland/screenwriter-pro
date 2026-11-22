@@ -10,13 +10,13 @@ tauri-build = { version = "2.0", features = [] }
 
 [dependencies]
 tauri = { version = "2.0", features = [
-  "dialog-all",
-  "fs-all",
-  "shell-open",
+  "dialog",
+  "fs",
+  "shell",
   "protocol-asset",
   "global-shortcut",
   "notification",
-  "window-all"
+  "window"
 ] }
 tauri-plugin-store = "2.0"
 tauri-plugin-shell = "2.0"
