@@ -7,7 +7,13 @@ directories:
 files:
   - main.js
   - preload.js
-  - resources/**/*
+  - resources/index.html
+  - resources/manifest.webmanifest
+  - resources/AppIcon.ico
+  - resources/css/**/*
+  - resources/js/**/*
+  - resources/fonts/**/*
+  - resources/icons/**/*
   - package.json
   - '!resources/**/._*'
   - '!**/.DS_Store'
