@@ -1,0 +1,42 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [master]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build installer (setup.exe)
+        run: npx electron-builder --win --x64 --publish never
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenwriter-Pro-Setup
+          path: dist/*.exe
+          retention-days: 30
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/Screenwriter-Pro-Setup-*.exe
+          generate_release_notes: true

@@ -1,0 +1,51 @@
+{
+  "name": "screenwriter-pro",
+  "version": "1.0.0",
+  "description": "Professional screenwriting software",
+  "main": "main.js",
+  "author": "Screenwriter Pro",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.screenwriterpro.app",
+    "productName": "Screenwriter Pro",
+    "copyright": "Copyright © 2026",
+    "files": [
+      "main.js",
+      "preload.js",
+      "resources/web/**/*",
+      "!**/._*"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.ico",
+      "artifactName": "Screenwriter-Pro-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Screenwriter Pro",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "fileAssociations": [
+      { "ext": "spro", "name": "Screenwriter Pro Script", "description": "Screenwriter Pro Script", "icon": "build/icon.ico", "role": "Editor" },
+      { "ext": "fountain", "name": "Fountain Screenplay", "role": "Editor" },
+      { "ext": "fdx", "name": "Final Draft Document", "role": "Editor" }
+    ]
+  }
+}
