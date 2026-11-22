@@ -13,7 +13,9 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
-    "extends": "./electron-builder.yml"
+    "extends": "./electron-builder.yml",
+    "mac": [],
+    "linux": []
   },
   "devDependencies": {
     "electron": "^30.0.0",
