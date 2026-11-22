@@ -1,0 +1,25 @@
+{
+  "name": "screenwriter-pro",
+  "version": "1.0.0",
+  "description": "Screenwriter Pro - Professional screenwriting application",
+  "author": "Screenwriter Pro Team",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --win",
+    "build:portable": "electron-builder --win portable",
+    "build:dir": "electron-builder --win --dir",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "extends": "./electron-builder.yml"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

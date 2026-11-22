@@ -1,0 +1,44 @@
+appId: com.screenwriterpro.app
+productName: Screenwriter Pro
+copyright: "Copyright © 2026 Screenwriter Pro Team"
+directories:
+  output: release
+  buildResources: resources
+files:
+  - main.js
+  - preload.js
+  - resources/**/*
+  - package.json
+  - '!resources/**/._*'
+  - '!**/.DS_Store'
+extraMetadata:
+  main: main.js
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  icon: resources/AppIcon.ico
+  publisherName: Screenwriter Pro Team
+  verifyUpdateCodeSignature: false
+asar: false
+nsis:
+  oneClick: false
+  perMachine: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Screenwriter Pro
+  uninstallDisplayName: Screenwriter Pro
+  license: LICENSE.txt
+  installerIcon: resources/AppIcon.ico
+  uninstallerIcon: resources/AppIcon.ico
+  installerHeader: resources/AppIcon.ico
+  include: installer.nsh
+  artifactName: "${productName}-${version}-${arch}.${ext}"
+portable:
+  artifactName: "${productName}-${version}-${arch}-portable.${ext}"
+compression: maximum
