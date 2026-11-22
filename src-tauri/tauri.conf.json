@@ -4,10 +4,7 @@
   "version": "1.0.0",
   "identifier": "com.screenwriterpro.app",
   "build": {
-    "beforeDevCommand": "",
-    "beforeBuildCommand": "",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "frontendDist": "../dist"
   },
   "app": {
     "windows": [
@@ -39,10 +36,7 @@
     ],
     "windows": {
       "nsis": {
-        "installerIcon": "icons/icon.ico",
-        "headerImage": null,
-        "licenseFile": null,
-        "displayLanguage": "English"
+        "installerIcon": "icons/icon.ico"
       }
     }
   },
