@@ -14,7 +14,7 @@ the installer is not code-signed: click **More info → Run anyway**.
 ## Build
 
 The installer is built by GitHub Actions on every push to `master`
-(artifact) and on `v*` tags (GitHub Release). To build on a Windows PC:
+(artifact) and on `v*` tags (GitHub Release). To build on a Windows PC or a Mac:
 
 ```
 npm install
@@ -22,3 +22,5 @@ npm run dist
 ```
 
 The installer lands in `dist/`. Run the app without installing: `npm start`.
+On a Mac, build from a short path on an APFS volume: NSIS crashes on very long
+paths, and exFAT drives add `._*` files that break packaging.
